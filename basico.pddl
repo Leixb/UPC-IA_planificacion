@@ -2,32 +2,31 @@
     (:requirements :strips :adl :typing)
     (:types ejercicio nivel dia)
     (:predicates
-        (predecesor  ?x - ejercicio ?y - ejercicio)      ;; x predecesor de y
-        (preparador ?x - ejercicio ?y - ejercicio)      ;; x preparador de y
-        ;(haciendo ?x - ejercicio ?n - nivel)            ;; haciendo ejercicio x a nivel n
-        (objetivo ?x - ejercicio ?n - nivel)            ;; objetivo ejercicio x a nivel n
+        (predecesor  ?x - ejercicio ?y - ejercicio)             ;; x predecesor de y
+        (preparador ?x - ejercicio ?y - ejercicio)              ;; x preparador de y
+        (objetivo ?x - ejercicio ?n - nivel)                    ;; objetivo ejercicio x a nivel n
         ;; orden de dias y nivel
         (prev ?x - dia ?y - dia)
-        (next ?x - nivel ?y - nivel)
+        (next-nivel ?x - nivel ?y - nivel)
         ;; predicados auxiliares
-        (next ?dia ?ej1 ?ej2)                           ;; orden de ejercicios en el dia ej1 < ej2
-        (last ?dia ?ej)                                 ;; ultimo ejeercicio del dia.
-        (lastLvl ?ej - ejercicio ?n - nivel)            ;; ultimo nivel del ejercicio
-        (realiza ?x - ejercicio ?n - nivel ?d - dia)    ;; se realiza el ejercicio x con nivel n el dia d
+        (next ?dia - dia ?ej1 - ejercicio ?ej2 - ejercicio)     ;; orden de ejercicios en el dia ej1 < ej2
+        (last ?dia - dia ?ej - ejercicio)                       ;; ultimo ejeercicio del dia.
+        (lastLvl ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
+        (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
     )
-    (action realizar-ejercico
-        (:parameters ?e ?n1 ?n2 ?d1 ?d2 ?prev)
-        (:precondition (and
+    (:action realizar-ejercico
+        :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
+        :precondition (and
             (realiza ?e ?n1 ?d1)
             (prev ?d1 ?d2)
-            (next ?n1 ?n2)
+            (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
-        ))
-        (:effect (and
+        )
+        :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
             (realiza ?e ?n2 ?d2)
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (next ?d2 ?prev ?e)
-        ))
+        )
     )
 )
