@@ -82,7 +82,16 @@ def preparadores(l):
 
 def predecesores(l):
     comment("predecesores")
-    pass
+    req_pre = [False] * (EJERCICIOS + 1)
+    for e, p in l.items():
+        req_pre[e] = True
+        print(f'(predecesor e{p} e{e})')
+
+    for e in range(1, EJERCICIOS + 1):
+        if not req_pre[e]:
+            print(f'(predecesor dummy e{e})')
+            for p in range(1, EJERCICIOS + 1):
+                print(f'(predecesor e{p} e{e})')
 
 
 def ejercicios_y_objetivos(haciendo, objetivo):
@@ -122,7 +131,9 @@ if __name__ == "__main__":
     preparadores(
         {1: [2, 3, 7], 3: [4], 5: [6], 8: [9], 12: [13], 17: [18], 20: [21], 21: [22], 24: [25]}
     )
-    predecesores({})
+    predecesores(
+        {1: 25, 3:22, 2:3, 25: 23}
+    )
     ejercicios_y_objetivos(
         # haciendo:
         [[1, 3], [5, 4], [9, 5], [17, 6], [20, 7], [25, 8]],
