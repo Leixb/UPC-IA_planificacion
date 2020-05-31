@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 DIAS = 15
 NIVELES = 10
@@ -106,7 +106,7 @@ def ejercicios_y_objetivos(haciendo, objetivo):
     hechos = [False] * (EJERCICIOS + 1)
     comment("Ejercicios hechos")
 
-    for ej, lvl in haciendo:
+    for ej, lvl in haciendo.items():
         hechos[ej] = True
         print(f"(LastLvl e{ej} n{lvl})")
         print(f"(realiza e{ej} n{lvl} d0)")
@@ -119,7 +119,7 @@ def ejercicios_y_objetivos(haciendo, objetivo):
 
     comment("objetivos")
 
-    for ej, lvl in objetivo:
+    for ej, lvl in objetivo.items():
         print(f"(objetivo e{ej} n{lvl})")
 
 
@@ -143,23 +143,18 @@ if __name__ == "__main__":
     last_day()
     dummy_diario()
 
-    #preparadores({})
+    # preparadores({})
     preparadores(
-        {
-            1: [3],
-            3: [4],
-            7: [5, 6],
-        }
+        {1: [3], 3: [4], 7: [5, 6]}
     )
-    #predecesores({})
+    # predecesores({})
     predecesores({1: 5, 3: 6})
-
 
     ejercicios_y_objetivos(
         # haciendo:
-        [[1, 3], [3, 4], [5, 5], [7, 6]],
+        {1: 3, 3: 4, 5: 5, 7: 6},
         # objetivos:
-        [[1, 10], [3, 9], [5, 7], [7, 10]],
+        {1: 10, 3: 9, 5: 7, 7: 10},
     )
     ejercicios_dia()
 
