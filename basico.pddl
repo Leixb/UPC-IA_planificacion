@@ -2,9 +2,9 @@
     (:requirements :strips :adl :typing)
     (:types ejercicio nivel dia)
     (:predicates
-        (precursor  ?x - ejercicio ?y - ejercicio)      ;; x precursor de y
+        (predecesor  ?x - ejercicio ?y - ejercicio)      ;; x predecesor de y
         (preparador ?x - ejercicio ?y - ejercicio)      ;; x preparador de y
-        (haciendo ?x - ejercicio ?n - nivel)            ;; haciendo ejercicio x a nivel n
+        ;(haciendo ?x - ejercicio ?n - nivel)            ;; haciendo ejercicio x a nivel n
         (objetivo ?x - ejercicio ?n - nivel)            ;; objetivo ejercicio x a nivel n
         ;; orden de dias y nivel
         (prev ?x - dia ?y - dia)
