@@ -49,6 +49,11 @@ def last_day():
         print(f"(last d{i} dummy)", end=" ")
         print()
 
+def dummy_diario():
+    comment("dummy ejercicio cada dia")
+    for i in range(DIAS + 1):
+        print(f"(hecho dummy d{i})")
+
 
 def goal():
     comment("goal")
@@ -63,9 +68,16 @@ def goal():
 
 def preparadores(l):
     comment("preparadores")
+    req_prep = [False] * (EJERCICIOS + 1)
     for e, p in l.items():
+        req_prep[e] = True
         for i in p:
-            print(f'(preparador e{e} e{i})')
+            print(f'(preparador e{i} e{e})')
+
+    comment("ej sin preparadores")
+    for ej in range(1, EJERCICIOS + 1):
+        if not req_prep[ej]:
+            print(f"(preparador dummy e{ej})")
 
 
 def predecesores(l):
@@ -105,6 +117,7 @@ if __name__ == "__main__":
     orden_dias()
     orden_niveles()
     last_day()
+    dummy_diario()
 
     preparadores(
         {1: [2], 3: [4], 5: [6], 8: [9], 12: [13], 17: [18], 20: [21], 21: [22], 24: [25]}
