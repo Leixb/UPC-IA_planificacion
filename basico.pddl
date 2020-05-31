@@ -23,12 +23,12 @@
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
-            (not (exists (?prep - ejercicio)
-                (and
-                    (preparador ?prep ?e)
-                    (not (hecho ?prep ?d2))
+            (forall (?prep - ejercicio)
+                (or
+                    (not (preparador ?prep ?e))
+                    (hecho ?prep ?d2)
                 )
-            ))
+            )
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
