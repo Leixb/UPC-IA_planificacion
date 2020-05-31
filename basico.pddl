@@ -13,7 +13,7 @@
         (last ?dia - dia ?ej - ejercicio)                       ;; ultimo ejeercicio del dia.
         (lastLvl ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
         (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
-        (hecho ?e - ejercico ?d - dia)
+        (hecho ?e - ejercicio ?d - dia)
     )
     (:action realizar-ejercico
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
@@ -23,6 +23,12 @@
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
+            (not (exists (?prep - ejercicio)
+                (and
+                    (preparador ?prep ?e)
+                    (not (hecho ?prep ?d2))
+                )
+            ))
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
