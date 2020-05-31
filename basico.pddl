@@ -34,31 +34,12 @@
             (hecho ?e ?d2)
         )
     )
-    (:action prep-dummy
-        :parameters (?e - ejercicio)
+    (:action prep-ejercicio
+        :parameters (?e - ejercicio ?prep - ejercicio ?d - dia)
         :precondition (and
-            (preparador dummy ?e)
-        )
-        :effect (and
-            (forall (?d - dia)
-                (preparado ?e ?d)
-            )
-        )
-    )
-    (:action preparar-ejercicio
-        :parameters (?e - ejercicio ?prep - ejercicio ?n - nivel ?d - dia ?prev - ejercicio)
-        :precondition (and
-            (not (preparado ?e ?d))
             (preparador ?prep ?e)
-            (lastLvl ?prep ?n)
-            (last ?d ?prev)
-        )
-        :effect (and
-            (realiza ?prep ?n ?d)
-            (not (last ?d ?prev)) (last ?d ?prep)
-            (next ?d ?prev ?prep)
             (hecho ?prep ?d)
-            (preparado ?e ?d)
         )
+        :effect (preparado ?e ?d)
     )
 )
