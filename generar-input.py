@@ -80,6 +80,7 @@ def ejercicios_y_objetivos(haciendo, objetivo):
     for ej, lvl in haciendo:
         hechos[ej] = True
         print(f"(LastLvl e{ej} n{lvl})")
+        print(f"(realiza e{ej} n{lvl} d0)")
     comment("Ejercicios NO hechos")
 
     for ej in range(1, EJERCICIOS + 1):
