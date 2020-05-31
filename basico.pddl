@@ -30,7 +30,7 @@
             (preparado ?e ?d2)
             (last ?d2 ?prev)
             (lastLvl ?e ?n1)
-            (< (ejercicios-dia ?d2) 7)
+            (< (ejercicios-dia ?d2) 6)
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
