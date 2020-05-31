@@ -35,10 +35,12 @@
         )
     )
     (:action prep-ejercicio
-        :parameters (?e - ejercicio ?prep - ejercicio ?d - dia)
-        :precondition (and
-            (preparador ?prep ?e)
-            (hecho ?prep ?d)
+        :parameters (?e - ejercicio ?d - dia)
+        :precondition (forall (?prep - ejercicio)
+            (imply
+                (preparador ?prep ?e)
+                (hecho ?prep ?d)
+            )
         )
         :effect (preparado ?e ?d)
     )
