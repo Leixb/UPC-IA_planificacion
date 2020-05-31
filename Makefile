@@ -1,4 +1,4 @@
-FF = ff
+FF = ff-metric
 
 all:
 	run

@@ -28,16 +28,16 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	orden_niveles
 
-(next-nivel n0 n1) 
-(next-nivel n1 n2) 
-(next-nivel n2 n3) 
-(next-nivel n3 n4) 
-(next-nivel n4 n5) 
-(next-nivel n5 n6) 
-(next-nivel n6 n7) 
-(next-nivel n7 n8) 
-(next-nivel n8 n9) 
-(next-nivel n9 n10) 
+(next-nivel n0 n0) (next-nivel n0 n1)
+(next-nivel n1 n1) (next-nivel n1 n2)
+(next-nivel n2 n2) (next-nivel n2 n3)
+(next-nivel n3 n3) (next-nivel n3 n4)
+(next-nivel n4 n4) (next-nivel n4 n5)
+(next-nivel n5 n5) (next-nivel n5 n6)
+(next-nivel n6 n6) (next-nivel n6 n7)
+(next-nivel n7 n7) (next-nivel n7 n8)
+(next-nivel n8 n8) (next-nivel n8 n9)
+(next-nivel n9 n9) (next-nivel n9 n10)
 
 ;;	dummy en los dias
 
@@ -80,7 +80,6 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 ;;	preparadores
 
 (preparador e2 e1)
-(preparador e3 e1)
 (preparador e7 e1)
 (preparador e4 e3)
 (preparador e6 e5)
@@ -727,6 +726,24 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (objetivo e17 n9)
 (objetivo e20 n8)
 (objetivo e25 n10)
+
+;;	ejercicios_dia
+
+(= (ejercicios-dia d1) 0)
+(= (ejercicios-dia d2) 0)
+(= (ejercicios-dia d3) 0)
+(= (ejercicios-dia d4) 0)
+(= (ejercicios-dia d5) 0)
+(= (ejercicios-dia d6) 0)
+(= (ejercicios-dia d7) 0)
+(= (ejercicios-dia d8) 0)
+(= (ejercicios-dia d9) 0)
+(= (ejercicios-dia d10) 0)
+(= (ejercicios-dia d11) 0)
+(= (ejercicios-dia d12) 0)
+(= (ejercicios-dia d13) 0)
+(= (ejercicios-dia d14) 0)
+(= (ejercicios-dia d15) 0)
 ) ;; end init
 
 ;;	goal

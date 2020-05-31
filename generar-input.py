@@ -8,7 +8,8 @@ DOMAIN = "planner"
 
 
 def objects():
-    print('(:objects')
+    print("(:objects")
+
     for i in range(1, EJERCICIOS + 1):
         print(f"e{i}", end=" ")
     print("- ejercicio")
@@ -22,7 +23,7 @@ def objects():
         print(f"n{i}", end=" ")
     print("- nivel")
 
-    print(') ;; end objects')
+    print(") ;; end objects")
 
 
 def orden_dias():
@@ -38,8 +39,8 @@ def orden_niveles():
     comment("orden_niveles")
 
     for i in range(NIVELES):
-        print(f"(next-nivel n{i} n{i+1})", end=" ")
-        print()
+        print(f"(next-nivel n{i} n{i})", end=" ")
+        print(f"(next-nivel n{i} n{i+1})")
 
 
 def last_day():
@@ -49,8 +50,10 @@ def last_day():
         print(f"(last d{i} dummy)", end=" ")
         print()
 
+
 def dummy_diario():
     comment("dummy ejercicio cada dia")
+
     for i in range(DIAS + 1):
         print(f"(hecho dummy d{i})")
 
@@ -69,12 +72,15 @@ def goal():
 def preparadores(l):
     comment("preparadores")
     req_prep = [False] * (EJERCICIOS + 1)
+
     for e, p in l.items():
         req_prep[e] = True
+
         for i in p:
-            print(f'(preparador e{i} e{e})')
+            print(f"(preparador e{i} e{e})")
 
     comment("ej sin preparadores")
+
     for ej in range(1, EJERCICIOS + 1):
         if not req_prep[ej]:
             print(f"(preparador dummy e{ej})")
@@ -83,15 +89,17 @@ def preparadores(l):
 def predecesores(l):
     comment("predecesores")
     req_pre = [False] * (EJERCICIOS + 1)
+
     for e, p in l.items():
         req_pre[e] = True
-        print(f'(predecesor e{p} e{e})')
+        print(f"(predecesor e{p} e{e})")
 
     for e in range(1, EJERCICIOS + 1):
         if not req_pre[e]:
-            print(f'(predecesor dummy e{e})')
+            print(f"(predecesor dummy e{e})")
+
             for p in range(1, EJERCICIOS + 1):
-                print(f'(predecesor e{p} e{e})')
+                print(f"(predecesor e{p} e{e})")
 
 
 def ejercicios_y_objetivos(haciendo, objetivo):
@@ -115,6 +123,13 @@ def ejercicios_y_objetivos(haciendo, objetivo):
         print(f"(objetivo e{ej} n{lvl})")
 
 
+def ejercicios_dia():
+    comment("ejercicios_dia")
+
+    for d in range(1, DIAS + 1):
+        print(f"(= (ejercicios-dia d{d}) 0)")
+
+
 def comment(text):
     print(f"\n;;\t{text}\n")
 
@@ -128,18 +143,31 @@ if __name__ == "__main__":
     last_day()
     dummy_diario()
 
+    #preparadores({})
     preparadores(
-        {1: [2, 3, 7], 3: [4], 5: [6], 8: [9], 12: [13], 17: [18], 20: [21], 21: [22], 24: [25]}
+        {
+            1: [2, 7],
+            3: [4],
+            5: [6],
+            8: [9],
+            12: [13],
+            17: [18],
+            20: [21],
+            21: [22],
+            24: [25],
+        }
     )
-    predecesores(
-        {1: 25, 3:22, 2:3, 25: 23}
-    )
+    #predecesores({})
+    predecesores({1: 25, 3: 22, 2: 3, 25: 23})
+
+
     ejercicios_y_objetivos(
         # haciendo:
         [[1, 3], [5, 4], [9, 5], [17, 6], [20, 7], [25, 8]],
         # objetivos:
         [[1, 10], [5, 6], [9, 9], [17, 9], [20, 8], [25, 10]],
     )
+    ejercicios_dia()
 
     print(") ;; end init")
     goal()
