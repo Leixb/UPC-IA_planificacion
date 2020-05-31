@@ -76,11 +76,17 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 ;;	Ejercicios hechos
 
 (LastLvl e2 n3)
+(realiza e2 n3 d0)
 (LastLvl e6 n4)
+(realiza e6 n4 d0)
 (LastLvl e9 n5)
+(realiza e9 n5 d0)
 (LastLvl e16 n6)
+(realiza e16 n6 d0)
 (LastLvl e22 n7)
+(realiza e22 n7 d0)
 (LastLvl e25 n8)
+(realiza e25 n8 d0)
 
 ;;	Ejercicios NO hechos
 
