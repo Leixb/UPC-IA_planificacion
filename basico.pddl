@@ -15,6 +15,7 @@
         (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
         (hecho     ?e - ejercicio ?d - dia)
         (preparado ?e - ejercicio ?d - dia)
+        (necesita-predecesor ?e - ejercicio)
     )
     (:action realizar-ejercico
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
@@ -25,6 +26,7 @@
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
+            (or (not (necesita-predecesor ?e)) (predecesor ?prev ?e))
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
