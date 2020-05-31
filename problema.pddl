@@ -80,6 +80,8 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 ;;	preparadores
 
 (preparador e2 e1)
+(preparador e3 e1)
+(preparador e7 e1)
 (preparador e4 e3)
 (preparador e6 e5)
 (preparador e9 e8)
