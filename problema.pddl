@@ -114,6 +114,12 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 (predecesor e25 e1)
 (necesita-predecesor e1)
+(predecesor e22 e3)
+(necesita-predecesor e3)
+(predecesor e3 e2) ;; predecesor de preparador
+(necesita-predecesor e2)
+;;(predecesor e23 e25) ;; predecesor de predecesor
+;;(necesita-predecesor e25)
 
 
 ;;	Ejercicios hechos

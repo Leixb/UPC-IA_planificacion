@@ -17,7 +17,7 @@
         (preparado ?e - ejercicio ?d - dia)
         (necesita-predecesor ?e - ejercicio)
     )
-    (:action realizar-ejercico
+    (:action realizar-ejercicio
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
         :precondition (and
             (not (hecho ?e ?d2))
@@ -26,7 +26,7 @@
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
-            (or (not (necesita-predecesor ?e)) (predecesor ?prev ?e))
+            (imply (necesita-predecesor ?e) (predecesor ?prev ?e))
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
