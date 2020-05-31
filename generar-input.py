@@ -8,6 +8,7 @@ DOMAIN = "planner"
 
 
 def objects():
+    print('(:objects')
     for i in range(1, EJERCICIOS + 1):
         print(f"e{i}", end=" ")
     print("- ejercicio")
@@ -20,6 +21,8 @@ def objects():
     for i in range(NIVELES + 1):
         print(f"n{i}", end=" ")
     print("- nivel")
+
+    print(') ;; end objects')
 
 
 def orden_dias():
@@ -35,7 +38,7 @@ def orden_niveles():
     comment("orden_niveles")
 
     for i in range(NIVELES):
-        print(f"(prev n{i} n{i+1})", end=" ")
+        print(f"(next-nivel n{i} n{i+1})", end=" ")
         print()
 
 
@@ -94,7 +97,7 @@ def comment(text):
 
 
 if __name__ == "__main__":
-    print(f"(define (problem {PROBLEM_NAME}) (domain {DOMAIN})")
+    print(f"(define (problem {PROBLEM_NAME}) (:domain {DOMAIN})")
     objects()
     print("(:init")
     orden_dias()
@@ -102,7 +105,7 @@ if __name__ == "__main__":
     last_day()
 
     preparadores(
-        {1: [2], 3: [4], 5: [6], 8: [9], 12: [13], 17: [18], 20: [21], 21: [22], 25: [26]}
+        {1: [2], 3: [4], 5: [6], 8: [9], 12: [13], 17: [18], 20: [21], 21: [22], 24: [25]}
     )
     predecesores({})
     ejercicios_y_objetivos(
