@@ -2,7 +2,7 @@
 
 DIAS = 15
 NIVELES = 10
-EJERCICIOS = 25
+EJERCICIOS = 7
 PROBLEM_NAME = "planning1"
 DOMAIN = "planner"
 
@@ -146,26 +146,20 @@ if __name__ == "__main__":
     #preparadores({})
     preparadores(
         {
-            1: [2, 7],
+            1: [3],
             3: [4],
-            5: [6],
-            8: [9],
-            12: [13],
-            17: [18],
-            20: [21],
-            21: [22],
-            24: [25],
+            7: [5, 6],
         }
     )
     #predecesores({})
-    predecesores({1: 25, 3: 22, 2: 3, 25: 23})
+    predecesores({1: 5, 3: 6})
 
 
     ejercicios_y_objetivos(
         # haciendo:
-        [[1, 3], [5, 4], [9, 5], [17, 6], [20, 7], [25, 8]],
+        [[1, 3], [3, 4], [5, 5], [7, 6]],
         # objetivos:
-        [[1, 10], [5, 6], [9, 9], [17, 9], [20, 8], [25, 10]],
+        [[1, 10], [3, 9], [5, 7], [7, 10]],
     )
     ejercicios_dia()
 
