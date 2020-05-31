@@ -7,13 +7,10 @@ int main(int argc, char *argv[]) {
     vector<int> mx(100, 0);
 
     string s;
-    cin >> s;
 
-    int n;
     char c;
 
-    while (cin >> n >> c) {
-        cin >> s;
+    while (cin >> s) {
         int ej, dia, niv;
         cin >> c >> ej >> c >> niv >> c >> niv;
         cin >> c >> dia >> c >> dia;

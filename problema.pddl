@@ -58,17 +58,55 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (last d14 dummy) 
 (last d15 dummy) 
 
+;;	dummy ejercicio cada dia
+
+(hecho dummy d0)
+(hecho dummy d1)
+(hecho dummy d2)
+(hecho dummy d3)
+(hecho dummy d4)
+(hecho dummy d5)
+(hecho dummy d6)
+(hecho dummy d7)
+(hecho dummy d8)
+(hecho dummy d9)
+(hecho dummy d10)
+(hecho dummy d11)
+(hecho dummy d12)
+(hecho dummy d13)
+(hecho dummy d14)
+(hecho dummy d15)
+
 ;;	preparadores
 
-(preparador e1 e2)
-(preparador e3 e4)
-(preparador e5 e6)
-(preparador e8 e9)
-(preparador e12 e13)
-(preparador e17 e18)
-(preparador e20 e21)
-(preparador e21 e22)
-(preparador e24 e25)
+(preparador e2 e1)
+(preparador e4 e3)
+(preparador e6 e5)
+(preparador e9 e8)
+(preparador e13 e12)
+(preparador e18 e17)
+(preparador e21 e20)
+(preparador e22 e21)
+(preparador e25 e24)
+
+;;	ej sin preparadores
+
+(preparador dummy e2)
+(preparador dummy e4)
+(preparador dummy e6)
+(preparador dummy e7)
+(preparador dummy e9)
+(preparador dummy e10)
+(preparador dummy e11)
+(preparador dummy e13)
+(preparador dummy e14)
+(preparador dummy e15)
+(preparador dummy e16)
+(preparador dummy e18)
+(preparador dummy e19)
+(preparador dummy e22)
+(preparador dummy e23)
+(preparador dummy e25)
 
 ;;	predecesores
 

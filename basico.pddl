@@ -13,22 +13,18 @@
         (last ?dia - dia ?ej - ejercicio)                       ;; ultimo ejeercicio del dia.
         (lastLvl ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
         (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
-        (hecho ?e - ejercicio ?d - dia)
+        (hecho     ?e - ejercicio ?d - dia)
+        (preparado ?e - ejercicio ?d - dia)
     )
     (:action realizar-ejercico
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
         :precondition (and
             (not (hecho ?e ?d2))
+            (preparado ?e ?d2)
             (realiza ?e ?n1 ?d1)
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
             (last ?d2 ?prev)
-            (forall (?prep - ejercicio)
-                (or
-                    (not (preparador ?prep ?e))
-                    (hecho ?prep ?d2)
-                )
-            )
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
@@ -36,6 +32,33 @@
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (next ?d2 ?prev ?e)
             (hecho ?e ?d2)
+        )
+    )
+    (:action prep-dummy
+        :parameters (?e - ejercicio)
+        :precondition (and
+            (preparador dummy ?e)
+        )
+        :effect (and
+            (forall (?d - dia)
+                (preparado ?e ?d)
+            )
+        )
+    )
+    (:action preparar-ejercicio
+        :parameters (?e - ejercicio ?prep - ejercicio ?n - nivel ?d - dia ?prev - ejercicio)
+        :precondition (and
+            (not (preparado ?e ?d))
+            (preparador ?prep ?e)
+            (lastLvl ?prep ?n)
+            (last ?d ?prev)
+        )
+        :effect (and
+            (realiza ?prep ?n ?d)
+            (not (last ?d ?prev)) (last ?d ?prep)
+            (next ?d ?prev ?prep)
+            (hecho ?prep ?d)
+            (preparado ?e ?d)
         )
     )
 )
