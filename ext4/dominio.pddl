@@ -15,7 +15,7 @@
         (next-nivel ?x - nivel ?y - nivel)
         ;; predicados auxiliares
         (last ?dia - dia ?ej - ejercicio)                       ;; ultimo ejeercicio del dia.
-        (lastLvl ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
+        (reached ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
         (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
         (hecho     ?e - ejercicio ?d - dia)
         (preparado ?e - ejercicio ?d - dia)
@@ -30,11 +30,10 @@
             (not (hecho ?e ?d2))
             (preparado ?e ?d2)
             (last ?d2 ?prev)
-            (lastLvl ?e ?n1)
             (< (+ (minutos-dia ?d2) (minutos-ej ?e)) 90)
         )
         :effect (and
-            (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
+            (reached ?e ?n2)
             (realiza ?e ?n2 ?d2)
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (hecho ?e ?d2)
