@@ -129,8 +129,7 @@ def minutos_dia():
 def minutos_ejercicios():
     comment("minutos_ejercicios")
     for ej in range(1, EJERCICIOS + 1):
-        print(f"(= (minutos-haciendo e{ej}) {3*ej})")
-        print(f"(= (minutos-descanso e{ej}) {ej})")
+        print(f"(= (minutos-ej e{ej}) {3*ej})")
 
 def comment(text):
     print(f"\n;;\t{text}\n")

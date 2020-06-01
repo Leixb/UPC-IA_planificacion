@@ -2,8 +2,7 @@
     (:requirements :strips :adl :typing :fluents)
     (:types ejercicio nivel dia)
     (:functions
-        (minutos-haciendo ?ej - ejercicio)
-        (minutos-descanso ?ej - ejercicio)
+        (minutos-ej ?ej - ejercicio)
         (minutos-dia ?dia - dia)
         (ej-prep)
     )
@@ -33,7 +32,7 @@
             (preparado ?e ?d2)
             (last ?d2 ?prev)
             (lastLvl ?e ?n1)
-            (< (minutos-dia ?d2) 90)
+            (< (+ (minutos-dia ?d2) (minutos-ej ?e)) 90)
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
@@ -41,14 +40,14 @@
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (next ?d2 ?prev ?e)
             (hecho ?e ?d2)
-            (increase (minutos-dia ?d2) (+ (minutos-haciendo ?e) (minutos-descanso ?e)))
+            (increase (minutos-dia ?d2) (minutos-ej ?e))
         )
     )
     (:action prep-ejercicio
         :parameters (?e - ejercicio ?d - dia)
         :precondition (and
         (not (preparado ?e ?d))
-        (< (minutos-dia ?d) 90)
+        (< (+ (minutos-dia ?d) (minutos-ej ?e)) 90)
         (forall (?prep - ejercicio)
             (imply
                 (preparador ?prep ?e)
