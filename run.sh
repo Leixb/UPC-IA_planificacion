@@ -1,15 +1,20 @@
 #!/usr/bin/bash
 
-problem_file="$(mktemp)"
-input_script="./generar-input.py"
+input_script="./generador.py"
+ff="ff-metric"
 
+problem_file="$(mktemp)"
 tmp1="$(mktemp)"
 
 echo "debug files:"
 echo " * problem -> $problem_file"
 echo " * output  -> $tmp1"
 
-ff="ff-metric"
+
+cd "$1" || {
+    echo "$1 - folder not found"
+    exit 1
+}
 
 if [ $# -eq 1 ]; then
     echo Please input problem data
@@ -21,10 +26,6 @@ else
     exit 1
 fi
 
-cd "$1" || {
-    echo "$1 - folder not found"
-    exit 1
-}
 
 echo compiling parser
 

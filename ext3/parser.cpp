@@ -20,15 +20,10 @@ int main(int argc, char *argv[]) {
 
     for (int i = 1; i <= 15; ++i) {
         cout << "# DIA " << i << " (" << v[i].size() << " ejercicios)"<< endl;
-        //if (v[i].size() > 6) cout << "# WARNING: mas de 6 ejercicios" << endl;
+        if (v[i].size() > 6) cout << "# WARNING: mas de 6 ejercicios" << endl;
         for (auto p : v[i]) {
             cout << "    - E" << p.first << "\tN" << p.second << endl;
-            if (p.second < mx[p.first]) {
-                cout << "ERROR ej" << p.first << ' ' << mx[p.first]
-                    << " -> "
-                    << p.second << endl;
-            }
-            mx[p.first] = p.second;
+            if (p.second > mx[p.first]) mx[p.first] = p.second;
         }
     }
 
