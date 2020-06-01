@@ -168,6 +168,11 @@ if __name__ == "__main__":
     ejercicios_y_objetivos(haciendo, objetivos)
     ejercicios_dia()
 
+    print('(= (ej-prep) 0)')
+
     print(") ;; end init")
     goal()
+
+    print('(:metric maximize (ej-prep))')
+
     print(") ;; end define")

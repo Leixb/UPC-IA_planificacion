@@ -3,6 +3,7 @@
     (:types ejercicio nivel dia)
     (:functions 
         (ejercicios-dia ?d - dia)
+        (ej-prep)
     )
     (:predicates
         (predecesor  ?x - ejercicio ?y - ejercicio)             ;; x predecesor de y
@@ -51,7 +52,7 @@
                 (preparador ?prep ?e)
                 (hecho ?prep ?d)
             )
-        )
-        :effect (preparado ?e ?d)
+        ))
+        :effect (and (preparado ?e ?d) (increase (ej-prep) 1))
     )
 )
