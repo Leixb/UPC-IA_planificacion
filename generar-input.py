@@ -119,12 +119,18 @@ def ejercicios_y_objetivos(haciendo, objetivo):
         print(f"(objetivo e{ej} n{lvl})")
 
 
-def ejercicios_dia():
-    comment("ejercicios_dia")
+def minutos_dia():
+    comment("minutos_dia")
 
     for d in range(1, DIAS + 1):
-        print(f"(= (ejercicios-dia d{d}) 0)")
+        print(f"(= (minutos-dia d{d}) 0)")
 
+
+def minutos_ejercicios():
+    comment("minutos_ejercicios")
+    for ej in range(1, EJERCICIOS + 1):
+        print(f"(= (minutos-haciendo e{ej}) {3*ej})")
+        print(f"(= (minutos-descanso e{ej}) {ej})")
 
 def comment(text):
     print(f"\n;;\t{text}\n")
@@ -166,7 +172,9 @@ if __name__ == "__main__":
     predecesores(pred)
 
     ejercicios_y_objetivos(haciendo, objetivos)
-    ejercicios_dia()
+    minutos_dia()
+
+    minutos_ejercicios()
 
     print('(= (ej-prep) 0)')
 

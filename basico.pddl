@@ -1,8 +1,10 @@
 (define (domain planner)
     (:requirements :strips :adl :typing :fluents)
     (:types ejercicio nivel dia)
-    (:functions 
-        (ejercicios-dia ?d - dia)
+    (:functions
+        (minutos-haciendo ?ej - ejercicio)
+        (minutos-descanso ?ej - ejercicio)
+        (minutos-dia ?dia - dia)
         (ej-prep)
     )
     (:predicates
@@ -31,7 +33,7 @@
             (preparado ?e ?d2)
             (last ?d2 ?prev)
             (lastLvl ?e ?n1)
-            (< (ejercicios-dia ?d2) 6)
+            (< (minutos-dia ?d2) 90)
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
@@ -39,14 +41,14 @@
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (next ?d2 ?prev ?e)
             (hecho ?e ?d2)
-            (increase (ejercicios-dia ?d2) 1)
+            (increase (minutos-dia ?d2) (+ (minutos-haciendo ?e) (minutos-descanso ?e)))
         )
     )
     (:action prep-ejercicio
         :parameters (?e - ejercicio ?d - dia)
         :precondition (and
         (not (preparado ?e ?d))
-        (< (ejercicios-dia ?d) 6)
+        (< (minutos-dia ?d) 90)
         (forall (?prep - ejercicio)
             (imply
                 (preparador ?prep ?e)
