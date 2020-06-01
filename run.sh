@@ -16,15 +16,19 @@ cd "$1" || {
     exit 1
 }
 
+cd -
+
 if [ $# -eq 1 ]; then
     echo Please input problem data
-    python3 "$input_script" | tee "$problem_file"
+    python3 "$1/$input_script" | tee "$problem_file"
 elif [ $# -eq 2 ]; then
-    python3 "$input_script" >"$problem_file" <"$2"
+    python3 "$1/$input_script" >"$problem_file" <"$2"
 else
     echo "provide more parameters"
     exit 1
 fi
+
+cd -
 
 
 echo compiling parser
