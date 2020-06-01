@@ -1,5 +1,6 @@
 ;; numero de ejercicios: ;; 7
-;; prep: ;;  {'1': ['2', '3'], '3': ['4', '7'], '7': ['5']}
+;; prep: ;;  {}
+;; pred: ;;  {}
 ;; haciendo: ;;  {'1': '3', '3': '4', '5': '5', '7': '6'}
 ;; objetivos: ;;  {'1': '10', '3': '9', '5': '7', '7': '10'}
 (define (problem planning1) (:domain planner)
@@ -83,11 +84,65 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	preparadores
 
-(preparador e2 e1)
-(preparador e3 e1)
-(preparador e4 e3)
-(preparador e7 e3)
-(preparador e5 e7)
+
+;;	predecesores
+
+(predecesor dummy e1)
+(predecesor e1 e1)
+(predecesor e2 e1)
+(predecesor e3 e1)
+(predecesor e4 e1)
+(predecesor e5 e1)
+(predecesor e6 e1)
+(predecesor e7 e1)
+(predecesor dummy e2)
+(predecesor e1 e2)
+(predecesor e2 e2)
+(predecesor e3 e2)
+(predecesor e4 e2)
+(predecesor e5 e2)
+(predecesor e6 e2)
+(predecesor e7 e2)
+(predecesor dummy e3)
+(predecesor e1 e3)
+(predecesor e2 e3)
+(predecesor e3 e3)
+(predecesor e4 e3)
+(predecesor e5 e3)
+(predecesor e6 e3)
+(predecesor e7 e3)
+(predecesor dummy e4)
+(predecesor e1 e4)
+(predecesor e2 e4)
+(predecesor e3 e4)
+(predecesor e4 e4)
+(predecesor e5 e4)
+(predecesor e6 e4)
+(predecesor e7 e4)
+(predecesor dummy e5)
+(predecesor e1 e5)
+(predecesor e2 e5)
+(predecesor e3 e5)
+(predecesor e4 e5)
+(predecesor e5 e5)
+(predecesor e6 e5)
+(predecesor e7 e5)
+(predecesor dummy e6)
+(predecesor e1 e6)
+(predecesor e2 e6)
+(predecesor e3 e6)
+(predecesor e4 e6)
+(predecesor e5 e6)
+(predecesor e6 e6)
+(predecesor e7 e6)
+(predecesor dummy e7)
+(predecesor e1 e7)
+(predecesor e2 e7)
+(predecesor e3 e7)
+(predecesor e4 e7)
+(predecesor e5 e7)
+(predecesor e6 e7)
+(predecesor e7 e7)
 
 ;;	Ejercicios hechos
 
@@ -115,6 +170,34 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (objetivo e3 n9)
 (objetivo e5 n7)
 (objetivo e7 n10)
+
+;;	minutos_dia
+
+(= (minutos-dia d1) 0)
+(= (minutos-dia d2) 0)
+(= (minutos-dia d3) 0)
+(= (minutos-dia d4) 0)
+(= (minutos-dia d5) 0)
+(= (minutos-dia d6) 0)
+(= (minutos-dia d7) 0)
+(= (minutos-dia d8) 0)
+(= (minutos-dia d9) 0)
+(= (minutos-dia d10) 0)
+(= (minutos-dia d11) 0)
+(= (minutos-dia d12) 0)
+(= (minutos-dia d13) 0)
+(= (minutos-dia d14) 0)
+(= (minutos-dia d15) 0)
+
+;;	minutos_ejercicios
+
+(= (minutos-ej e1) 3)
+(= (minutos-ej e2) 6)
+(= (minutos-ej e3) 9)
+(= (minutos-ej e4) 12)
+(= (minutos-ej e5) 15)
+(= (minutos-ej e6) 18)
+(= (minutos-ej e7) 21)
 ) ;; end init
 
 ;;	goal

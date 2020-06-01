@@ -1,5 +1,6 @@
 ;; numero de ejercicios: ;; 7
-;; prep: ;;  {'1': ['2', '3'], '3': ['4', '7'], '7': ['5']}
+;; prep: ;;  {}
+;; pred: ;;  {'1': '3', '6': '4', '7': '5'}
 ;; haciendo: ;;  {'1': '3', '3': '4', '5': '5', '7': '6'}
 ;; objetivos: ;;  {'1': '10', '3': '9', '5': '7', '7': '10'}
 (define (problem planning1) (:domain planner)
@@ -83,11 +84,44 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	preparadores
 
-(preparador e2 e1)
-(preparador e3 e1)
-(preparador e4 e3)
-(preparador e7 e3)
-(preparador e5 e7)
+
+;;	predecesores
+
+(predecesor e3 e1)
+(predecesor e4 e6)
+(predecesor e5 e7)
+(predecesor dummy e2)
+(predecesor e1 e2)
+(predecesor e2 e2)
+(predecesor e3 e2)
+(predecesor e4 e2)
+(predecesor e5 e2)
+(predecesor e6 e2)
+(predecesor e7 e2)
+(predecesor dummy e3)
+(predecesor e1 e3)
+(predecesor e2 e3)
+(predecesor e3 e3)
+(predecesor e4 e3)
+(predecesor e5 e3)
+(predecesor e6 e3)
+(predecesor e7 e3)
+(predecesor dummy e4)
+(predecesor e1 e4)
+(predecesor e2 e4)
+(predecesor e3 e4)
+(predecesor e4 e4)
+(predecesor e5 e4)
+(predecesor e6 e4)
+(predecesor e7 e4)
+(predecesor dummy e5)
+(predecesor e1 e5)
+(predecesor e2 e5)
+(predecesor e3 e5)
+(predecesor e4 e5)
+(predecesor e5 e5)
+(predecesor e6 e5)
+(predecesor e7 e5)
 
 ;;	Ejercicios hechos
 

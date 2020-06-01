@@ -1,5 +1,5 @@
 ;; numero de ejercicios: ;; 7
-;; prep: ;;  {'1': ['2', '3'], '3': ['4', '7'], '7': ['5']}
+;; prep: ;;  {'1': ['3'], '3': ['4'], '7': ['5']}
 ;; haciendo: ;;  {'1': '3', '3': '4', '5': '5', '7': '6'}
 ;; objetivos: ;;  {'1': '10', '3': '9', '5': '7', '7': '10'}
 (define (problem planning1) (:domain planner)
@@ -83,11 +83,13 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	preparadores
 
-(preparador e2 e1)
 (preparador e3 e1)
 (preparador e4 e3)
-(preparador e7 e3)
 (preparador e5 e7)
+(preparador dummy e2)
+(preparador dummy e4)
+(preparador dummy e5)
+(preparador dummy e6)
 
 ;;	Ejercicios hechos
 
