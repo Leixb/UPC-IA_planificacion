@@ -1,6 +1,10 @@
 (define (domain planner)
-    (:requirements :strips :adl :typing)
+    (:requirements :strips :adl :typing :fluents)
     (:types ejercicio nivel dia)
+    (:functions 
+        (ejercicios-dia ?d - dia)
+        (ej-prep)
+    )
     (:predicates
         (predecesor  ?x - ejercicio ?y - ejercicio)             ;; x predecesor de y
         (preparador ?x - ejercicio ?y - ejercicio)              ;; x preparador de y
@@ -19,13 +23,15 @@
     (:action realizar-ejercicio
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
         :precondition (and
-            (not (hecho ?e ?d2))
-            (preparado ?e ?d2)
             (realiza ?e ?n1 ?d1)
+            (predecesor ?prev ?e)
             (prev ?d1 ?d2)
             (next-nivel ?n1 ?n2)
+            (not (hecho ?e ?d2))
+            (preparado ?e ?d2)
             (last ?d2 ?prev)
-            (predecesor ?prev ?e)
+            (lastLvl ?e ?n1)
+            (< (ejercicios-dia ?d2) 6)
         )
         :effect (and
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
@@ -33,16 +39,20 @@
             (not (last ?d2 ?prev)) (last ?d2 ?e)
             (next ?d2 ?prev ?e)
             (hecho ?e ?d2)
+            (increase (ejercicios-dia ?d2) 1)
         )
     )
     (:action prep-ejercicio
         :parameters (?e - ejercicio ?d - dia)
-        :precondition (forall (?prep - ejercicio)
+        :precondition (and
+        (not (preparado ?e ?d))
+        (< (ejercicios-dia ?d) 6)
+        (forall (?prep - ejercicio)
             (imply
                 (preparador ?prep ?e)
                 (hecho ?prep ?d)
             )
-        )
-        :effect (preparado ?e ?d)
+        ))
+        :effect (and (preparado ?e ?d) (increase (ej-prep) 1))
     )
 )
