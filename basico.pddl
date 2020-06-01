@@ -43,7 +43,10 @@
     )
     (:action prep-ejercicio
         :parameters (?e - ejercicio ?d - dia)
-        :precondition (forall (?prep - ejercicio)
+        :precondition (and
+        (not (preparado ?e ?d))
+        (< (ejercicios-dia ?d) 6)
+        (forall (?prep - ejercicio)
             (imply
                 (preparador ?prep ?e)
                 (hecho ?prep ?d)
