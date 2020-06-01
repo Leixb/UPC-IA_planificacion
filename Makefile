@@ -4,7 +4,7 @@ all:
 	run
 
 problema.pddl: generar-input.py
-	python3 generar-input.py >problema.pddl
+	python3 generar-input.py >problema.pddl <tests/input_7ej
 
 run: problema.pddl
 	$(FF) -o basico.pddl -f problema.pddl

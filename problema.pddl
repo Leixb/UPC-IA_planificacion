@@ -1,3 +1,8 @@
+;; numero de ejercicios: ;; 7
+;; prep: ;;  {'1': ['3'], '3': ['4'], '7': ['5', '6']}
+;; pred: ;;  {'1': '5', '3': '6'}
+;; haciendo: ;;  {'1': '3', '3': '4', '5': '5', '7': '6'}
+;; objetivos: ;;  {'1': '10', '3': '9', '5': '7', '7': '10'}
 (define (problem planning1) (:domain planner)
 (:objects
 e1 e2 e3 e4 e5 e6 e7 - ejercicio

@@ -2,7 +2,9 @@
 
 DIAS = 15
 NIVELES = 10
-EJERCICIOS = 7
+EJERCICIOS = int(input(';; numero de ejercicios: '))
+print(';;', EJERCICIOS)
+
 PROBLEM_NAME = "planning1"
 DOMAIN = "planner"
 
@@ -74,7 +76,7 @@ def preparadores(l):
     req_prep = [False] * (EJERCICIOS + 1)
 
     for e, p in l.items():
-        req_prep[e] = True
+        req_prep[int(e)] = True
 
         for i in p:
             print(f"(preparador e{i} e{e})")
@@ -91,7 +93,7 @@ def predecesores(l):
     req_pre = [False] * (EJERCICIOS + 1)
 
     for e, p in l.items():
-        req_pre[e] = True
+        req_pre[int(e)] = True
         print(f"(predecesor e{p} e{e})")
 
     for e in range(1, EJERCICIOS + 1):
@@ -107,7 +109,7 @@ def ejercicios_y_objetivos(haciendo, objetivo):
     comment("Ejercicios hechos")
 
     for ej, lvl in haciendo.items():
-        hechos[ej] = True
+        hechos[int(ej)] = True
         print(f"(LastLvl e{ej} n{lvl})")
         print(f"(realiza e{ej} n{lvl} d0)")
     comment("Ejercicios NO hechos")
@@ -135,6 +137,24 @@ def comment(text):
 
 
 if __name__ == "__main__":
+    txt = input(';; prep: ')
+    l = [x.split(':') for x in txt.replace(' ','').split(';')]
+    prep = {k: v.split(',') for k, v in l}
+    print(";; ", prep)
+
+    txt = input(';; pred: ')
+    pred = dict(x.split(':') for x in txt.replace(' ','').split(';'))
+    print(";; ", pred)
+
+    txt = input(';; haciendo: ')
+    haciendo = dict(x.split(':') for x in txt.replace(' ','').split(';'))
+    print(";; ", haciendo)
+
+    txt = input(';; objetivos: ')
+    objetivos = dict(x.split(':') for x in txt.replace(' ','').split(';'))
+    print(";; ", objetivos)
+
+
     print(f"(define (problem {PROBLEM_NAME}) (:domain {DOMAIN})")
     objects()
     print("(:init")
@@ -143,19 +163,10 @@ if __name__ == "__main__":
     last_day()
     dummy_diario()
 
-    # preparadores({})
-    preparadores(
-        {1: [3], 3: [4], 7: [5, 6]}
-    )
-    # predecesores({})
-    predecesores({1: 5, 3: 6})
+    preparadores(prep)
+    predecesores(pred)
 
-    ejercicios_y_objetivos(
-        # haciendo:
-        {1: 3, 3: 4, 5: 5, 7: 6},
-        # objetivos:
-        {1: 10, 3: 9, 5: 7, 7: 10},
-    )
+    ejercicios_y_objetivos(haciendo, objetivos)
     ejercicios_dia()
 
     print(") ;; end init")
