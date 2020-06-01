@@ -89,13 +89,6 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (preparador e5 e7)
 (preparador e6 e7)
 
-;;	ej sin preparadores
-
-(preparador dummy e2)
-(preparador dummy e4)
-(preparador dummy e5)
-(preparador dummy e6)
-
 ;;	predecesores
 
 (predecesor e5 e1)
@@ -185,6 +178,7 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (= (ejercicios-dia d13) 0)
 (= (ejercicios-dia d14) 0)
 (= (ejercicios-dia d15) 0)
+(= (ej-prep) 0)
 ) ;; end init
 
 ;;	goal
@@ -194,4 +188,5 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
         (imply (objetivo ?ej ?n) (LastLvl ?ej ?n))
     )
 )
+(:metric maximize (ej-prep))
 ) ;; end define
