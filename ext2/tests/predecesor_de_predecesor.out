@@ -1,0 +1,244 @@
+debug files:
+ * problem -> /tmp/tmp.5NjkfvO4gm
+ * output  -> /tmp/tmp.boArBAbIYI
+/home/leix/Documents/UPC/IA/lab/UPC-IA_planificacion
+/home/leix/Documents/UPC/IA/lab/UPC-IA_planificacion/ext2
+compiling parser
+running ff-metric ...
+
+ff: parsing domain file
+domain 'PLANNER' defined
+ ... done.
+ff: parsing problem file
+problem 'PLANNING1' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:   69 into depth [1]
+                                  68            [1]
+                                  65            [1]
+                                  64            [1]
+                                  63            [1]
+                                  62            [1]
+                                  61            [1]
+                                  60            [1]
+                                  59            [1]
+                                  58            [1]
+                                  57            [1]
+                                  56            [1]
+                                  55            [1]
+                                  54            [1]
+                                  53            [1]
+                                  52            [1][2]
+                                  51            [1]
+                                  50            [1]
+                                  49            [1]
+                                  48            [1]
+                                  47            [1]
+                                  45            [1]
+                                  44            [1]
+                                  43            [1]
+                                  41            [1]
+                                  39            [1]
+                                  37            [1]
+                                  36            [1]
+                                  35            [1]
+                                  34            [1]
+                                  33            [1]
+                                  32            [1]
+                                  31            [1][2]
+                                  30            [1]
+                                  29            [1]
+                                  28            [1]
+                                  27            [1]
+                                  26            [1][2]
+                                  25            [1]
+                                  24            [1]
+                                  23            [1]
+                                  22            [1]
+                                  21            [1][2][3]
+                                  20            [1]
+                                  19            [1]
+                                  18            [1]
+                                  17            [1][2][3]
+                                  16            [1]
+                                  15            [1]
+                                  14            [1]
+                                  13            [1][2][3]
+                                  12            [1]
+                                  11            [1]
+                                  10            [1]
+                                   9            [1][2][3]
+                                   8            [1]
+                                   7            [1]
+                                   6            [1][2][3]
+                                   5            [1]
+                                   4            [1]
+                                   3            [1][2][3]
+                                   2            [1]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: PREP-EJERCICIO E5 D1
+        1: PREP-EJERCICIO E4 D1
+        2: REALIZAR-EJERCICIO E4 N0 N0 D0 D1 DUMMY
+        3: PREP-EJERCICIO E3 D1
+        4: PREP-EJERCICIO E7 D1
+        5: REALIZAR-EJERCICIO E3 N4 N5 D0 D1 E4
+        6: PREP-EJERCICIO E3 D2
+        7: PREP-EJERCICIO E7 D2
+        8: PREP-EJERCICIO E3 D6
+        9: PREP-EJERCICIO E3 D5
+       10: PREP-EJERCICIO E3 D7
+       11: PREP-EJERCICIO E3 D3
+       12: PREP-EJERCICIO E7 D3
+       13: PREP-EJERCICIO E3 D4
+       14: PREP-EJERCICIO E7 D4
+       15: PREP-EJERCICIO E4 D2
+       16: PREP-EJERCICIO E4 D3
+       17: PREP-EJERCICIO E4 D6
+       18: PREP-EJERCICIO E4 D5
+       19: PREP-EJERCICIO E4 D7
+       20: REALIZAR-EJERCICIO E4 N0 N0 D1 D2 DUMMY
+       21: REALIZAR-EJERCICIO E3 N5 N6 D1 D2 E4
+       22: PREP-EJERCICIO E4 D4
+       23: REALIZAR-EJERCICIO E4 N0 N0 D1 D3 DUMMY
+       24: REALIZAR-EJERCICIO E3 N6 N7 D2 D3 E4
+       25: REALIZAR-EJERCICIO E4 N0 N0 D1 D4 DUMMY
+       26: REALIZAR-EJERCICIO E3 N7 N8 D3 D4 E4
+       27: REALIZAR-EJERCICIO E4 N0 N0 D1 D6 DUMMY
+       28: REALIZAR-EJERCICIO E4 N0 N0 D1 D5 DUMMY
+       29: REALIZAR-EJERCICIO E4 N0 N0 D1 D7 DUMMY
+       30: REALIZAR-EJERCICIO E3 N8 N8 D4 D5 E4
+       31: REALIZAR-EJERCICIO E3 N8 N8 D4 D6 E4
+       32: REALIZAR-EJERCICIO E3 N8 N9 D4 D7 E4
+       33: PREP-EJERCICIO E5 D5
+       34: PREP-EJERCICIO E5 D2
+       35: PREP-EJERCICIO E5 D6
+       36: PREP-EJERCICIO E5 D7
+       37: PREP-EJERCICIO E5 D3
+       38: PREP-EJERCICIO E5 D4
+       39: REALIZAR-EJERCICIO E5 N5 N6 D0 D1 E3
+       40: REALIZAR-EJERCICIO E7 N6 N7 D0 D1 E5
+       41: REALIZAR-EJERCICIO E4 N0 N0 D0 D1 E7
+       42: REALIZAR-EJERCICIO E3 N4 N4 D0 D1 E4
+       43: PREP-EJERCICIO E1 D1
+       44: REALIZAR-EJERCICIO E1 N3 N4 D0 D1 E3
+       45: REALIZAR-EJERCICIO E5 N6 N7 D1 D2 E3
+       46: REALIZAR-EJERCICIO E7 N7 N8 D1 D2 E5
+       47: REALIZAR-EJERCICIO E4 N0 N0 D0 D2 E7
+       48: REALIZAR-EJERCICIO E3 N4 N4 D1 D2 E4
+       49: PREP-EJERCICIO E1 D2
+       50: REALIZAR-EJERCICIO E1 N4 N5 D1 D2 E3
+       51: REALIZAR-EJERCICIO E5 N7 N7 D2 D3 E3
+       52: REALIZAR-EJERCICIO E7 N8 N9 D2 D3 E5
+       53: REALIZAR-EJERCICIO E4 N0 N0 D0 D3 E7
+       54: REALIZAR-EJERCICIO E3 N6 N6 D2 D3 E4
+       55: PREP-EJERCICIO E1 D3
+       56: REALIZAR-EJERCICIO E1 N5 N6 D2 D3 E3
+       57: REALIZAR-EJERCICIO E5 N7 N7 D2 D4 E3
+       58: PREP-EJERCICIO E1 D4
+       59: REALIZAR-EJERCICIO E7 N9 N10 D3 D4 E5
+       60: REALIZAR-EJERCICIO E4 N0 N0 D0 D4 E7
+       61: REALIZAR-EJERCICIO E3 N7 N7 D3 D4 E4
+       62: REALIZAR-EJERCICIO E1 N6 N7 D3 D4 E3
+       63: REALIZAR-EJERCICIO E5 N7 N7 D2 D5 E3
+       64: REALIZAR-EJERCICIO E4 N0 N0 D1 D5 E5
+       65: REALIZAR-EJERCICIO E3 N8 N8 D4 D5 E4
+       66: PREP-EJERCICIO E1 D5
+       67: REALIZAR-EJERCICIO E1 N7 N8 D4 D5 E3
+       68: REALIZAR-EJERCICIO E5 N7 N7 D2 D6 E3
+       69: REALIZAR-EJERCICIO E4 N0 N0 D1 D6 E5
+       70: REALIZAR-EJERCICIO E3 N8 N8 D4 D6 E4
+       71: PREP-EJERCICIO E1 D6
+       72: REALIZAR-EJERCICIO E1 N8 N9 D5 D6 E3
+       73: REALIZAR-EJERCICIO E5 N7 N7 D2 D7 E3
+       74: REALIZAR-EJERCICIO E4 N0 N0 D1 D7 E5
+       75: REALIZAR-EJERCICIO E3 N8 N8 D4 D7 E4
+       76: PREP-EJERCICIO E1 D7
+       77: REALIZAR-EJERCICIO E1 N9 N10 D6 D7 E3
+     
+
+time spent:    0.00 seconds instantiating 84000 easy, 128 hard action templates
+               0.02 seconds reachability analysis, yielding 1260 facts and 41384 actions
+               0.01 seconds creating final representation with 1227 relevant facts, 0 relevant fluents
+               0.10 seconds computing LNF
+               0.05 seconds building connectivity graph
+              10.15 seconds searching, evaluating 2437 states, to a max depth of 3
+              10.33 seconds total time
+
+# DIA 1 (7 ejercicios)
+    - E4	N0
+    - E3	N5
+    - E5	N6
+    - E7	N7
+    - E4	N0
+    - E3	N4
+    - E1	N4
+# DIA 2 (7 ejercicios)
+    - E4	N0
+    - E3	N6
+    - E5	N7
+    - E7	N8
+    - E4	N0
+    - E3	N4
+    - E1	N5
+# DIA 3 (7 ejercicios)
+    - E4	N0
+    - E3	N7
+    - E5	N7
+    - E7	N9
+    - E4	N0
+    - E3	N6
+    - E1	N6
+# DIA 4 (7 ejercicios)
+    - E4	N0
+    - E3	N8
+    - E5	N7
+    - E7	N10
+    - E4	N0
+    - E3	N7
+    - E1	N7
+# DIA 5 (6 ejercicios)
+    - E4	N0
+    - E3	N8
+    - E5	N7
+    - E4	N0
+    - E3	N8
+    - E1	N8
+# DIA 6 (6 ejercicios)
+    - E4	N0
+    - E3	N8
+    - E5	N7
+    - E4	N0
+    - E3	N8
+    - E1	N9
+# DIA 7 (6 ejercicios)
+    - E4	N0
+    - E3	N9
+    - E5	N7
+    - E4	N0
+    - E3	N8
+    - E1	N10
+# DIA 8 (0 ejercicios)
+# DIA 9 (0 ejercicios)
+# DIA 10 (0 ejercicios)
+# DIA 11 (0 ejercicios)
+# DIA 12 (0 ejercicios)
+# DIA 13 (0 ejercicios)
+# DIA 14 (0 ejercicios)
+# DIA 15 (0 ejercicios)
+ASSOLITS
+ej 1	N10
+ej 3	N9
+ej 5	N7
+ej 7	N10
