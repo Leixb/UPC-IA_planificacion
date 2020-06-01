@@ -175,11 +175,6 @@ if __name__ == "__main__":
 
     minutos_ejercicios()
 
-    print('(= (ej-prep) 0)')
-
     print(") ;; end init")
     goal()
-
-    print('(:metric maximize (ej-prep))')
-
     print(") ;; end define")

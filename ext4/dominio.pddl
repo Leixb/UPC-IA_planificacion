@@ -4,7 +4,6 @@
     (:functions
         (minutos-ej ?ej - ejercicio)
         (minutos-dia ?dia - dia)
-        (ej-prep)
     )
     (:predicates
         (predecesor  ?x - ejercicio ?y - ejercicio)             ;; x predecesor de y
@@ -51,6 +50,6 @@
                 (hecho ?prep ?d)
             )
         ))
-        :effect (and (preparado ?e ?d) (increase (ej-prep) 1))
+        :effect (preparado ?e ?d)
     )
 )
