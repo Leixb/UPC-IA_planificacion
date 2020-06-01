@@ -81,12 +81,6 @@ def preparadores(l):
         for i in p:
             print(f"(preparador e{i} e{e})")
 
-    comment("ej sin preparadores")
-
-    for ej in range(1, EJERCICIOS + 1):
-        if not req_prep[ej]:
-            print(f"(preparador dummy e{ej})")
-
 
 def predecesores(l):
     comment("predecesores")
