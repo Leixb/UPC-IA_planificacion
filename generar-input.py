@@ -139,11 +139,16 @@ def comment(text):
 if __name__ == "__main__":
     txt = input(';; prep: ')
     l = [x.split(':') for x in txt.replace(' ','').split(';')]
-    prep = {k: v.split(',') for k, v in l}
+    prep = {}
+    if len(l) > 1:
+        prep = {k: v.split(',') for k, v in l}
     print(";; ", prep)
 
     txt = input(';; pred: ')
-    pred = dict(x.split(':') for x in txt.replace(' ','').split(';'))
+    try:
+        pred = dict(x.split(':') for x in txt.replace(' ','').split(';'))
+    except ValueError:
+        pred = {}
     print(";; ", pred)
 
     txt = input(';; haciendo: ')
