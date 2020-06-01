@@ -65,7 +65,7 @@ def goal():
     print(
         """(:goal
     (forall (?ej - ejercicio ?n - nivel)
-        (imply (objetivo ?ej ?n) (LastLvl ?ej ?n))
+        (imply (objetivo ?ej ?n) (reached ?ej ?n))
     )
 )"""
     )
@@ -89,14 +89,13 @@ def predecesores(l):
     for e, p in l.items():
         req_pre[int(e)] = True
         print(f"(predecesor e{p} e{e})")
-        print(f"(tiene-pred e{e})")
 
-    #for e in range(1, EJERCICIOS + 1):
-    #    if not req_pre[e]:
-    #        print(f"(predecesor dummy e{e})")
+    for e in range(1, EJERCICIOS + 1):
+        if not req_pre[e]:
+            print(f"(predecesor dummy e{e})")
 
-    #        for p in range(1, EJERCICIOS + 1):
-    #            print(f"(predecesor e{p} e{e})")
+            for p in range(1, EJERCICIOS + 1):
+                print(f"(predecesor e{p} e{e})")
 
 
 def ejercicios_y_objetivos(haciendo, objetivo):
@@ -105,13 +104,13 @@ def ejercicios_y_objetivos(haciendo, objetivo):
 
     for ej, lvl in haciendo.items():
         hechos[int(ej)] = True
-        print(f"(LastLvl e{ej} n{lvl})")
+        print(f"(reached e{ej} n{lvl})")
         print(f"(realiza e{ej} n{lvl} d0)")
     comment("Ejercicios NO hechos")
 
     for ej in range(1, EJERCICIOS + 1):
         if not hechos[ej]:
-            print(f"(LastLvl e{ej} n0)")
+            print(f"(reached e{ej} n0)")
             print(f"(realiza e{ej} n0 d0)")
 
     comment("objetivos")
