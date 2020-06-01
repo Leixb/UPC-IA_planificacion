@@ -8,7 +8,6 @@
         (prev ?x - dia ?y - dia)
         (next-nivel ?x - nivel ?y - nivel)
         ;; predicados auxiliares
-        (next ?dia - dia ?ej1 - ejercicio ?ej2 - ejercicio)     ;; orden de ejercicios en el dia ej1 < ej2
         (last ?dia - dia ?ej - ejercicio)                       ;; ultimo ejeercicio del dia.
         (lastLvl ?ej - ejercicio ?n - nivel)                    ;; ultimo nivel del ejercicio
         (realiza ?x - ejercicio ?n - nivel ?d - dia)            ;; se realiza el ejercicio x con nivel n el dia d
@@ -30,7 +29,6 @@
             (not (lastLvl ?e ?n1)) (lastLvl ?e ?n2)
             (realiza ?e ?n2 ?d2)
             (not (last ?d2 ?prev)) (last ?d2 ?e)
-            (next ?d2 ?prev ?e)
             (hecho ?e ?d2)
         )
     )
