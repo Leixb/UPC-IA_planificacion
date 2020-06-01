@@ -123,7 +123,7 @@ def ejercicios_dia():
     comment("ejercicios_dia")
 
     for i in range(1, DIAS + 1):
-        print(f"(= (ejercicios-dia d{i}]) 0)")
+        print(f"(= (ejercicios-dia d{i}) 0)")
 
 
 def comment(text):
