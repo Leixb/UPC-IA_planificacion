@@ -20,6 +20,7 @@
         :parameters (?e - ejercicio ?n1 - nivel ?n2 - nivel ?d1 - dia ?d2 - dia ?prev - ejercicio)
         :precondition (and
             (last ?d2 ?prev)
+            (not (hecho ?e ?d2))
             (next-nivel ?n1 ?n2)
             (predecesor ?prev ?e)
             (preparado ?e ?d2)
