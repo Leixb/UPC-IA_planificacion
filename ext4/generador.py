@@ -65,7 +65,7 @@ def goal():
     print(
         """(:goal
     (forall (?ej - ejercicio ?n - nivel)
-        (imply (objetivo ?ej ?n) (LastLvl ?ej ?n))
+        (imply (objetivo ?ej ?n) (reached ?ej ?n))
     )
 )"""
     )
@@ -104,13 +104,13 @@ def ejercicios_y_objetivos(haciendo, objetivo):
 
     for ej, lvl in haciendo.items():
         hechos[int(ej)] = True
-        print(f"(LastLvl e{ej} n{lvl})")
+        print(f"(reached e{ej} n{lvl})")
         print(f"(realiza e{ej} n{lvl} d0)")
     comment("Ejercicios NO hechos")
 
     for ej in range(1, EJERCICIOS + 1):
         if not hechos[ej]:
-            print(f"(LastLvl e{ej} n0)")
+            print(f"(reached e{ej} n0)")
             print(f"(realiza e{ej} n0 d0)")
 
     comment("objetivos")
@@ -119,12 +119,17 @@ def ejercicios_y_objetivos(haciendo, objetivo):
         print(f"(objetivo e{ej} n{lvl})")
 
 
-def ejercicios_dia():
-    comment("ejercicios_dia")
+def minutos_dia():
+    comment("minutos_dia")
 
     for d in range(1, DIAS + 1):
-        print(f"(= (ejercicios-dia d{d}) 0)")
+        print(f"(= (minutos-dia d{d}) 0)")
 
+
+def minutos_ejercicios():
+    comment("minutos_ejercicios")
+    for ej in range(1, EJERCICIOS + 1):
+        print(f"(= (minutos-ej e{ej}) {3*ej})")
 
 def comment(text):
     print(f"\n;;\t{text}\n")
@@ -166,13 +171,10 @@ if __name__ == "__main__":
     predecesores(pred)
 
     ejercicios_y_objetivos(haciendo, objetivos)
-    ejercicios_dia()
+    minutos_dia()
 
-    print('(= (ej-prep) 0)')
+    minutos_ejercicios()
 
     print(") ;; end init")
     goal()
-
-    print('(:metric maximize (ej-prep))')
-
     print(") ;; end define")

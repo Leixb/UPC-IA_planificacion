@@ -1,6 +1,6 @@
 ;; numero de ejercicios: ;; 7
-;; prep: ;;  {'1': ['3'], '3': ['4'], '7': ['5', '6']}
-;; pred: ;;  {'1': '5', '3': '6'}
+;; prep: ;;  {}
+;; pred: ;;  {}
 ;; haciendo: ;;  {'1': '3', '3': '4', '5': '5', '7': '6'}
 ;; objetivos: ;;  {'1': '10', '3': '9', '5': '7', '7': '10'}
 (define (problem planning1) (:domain planner)
@@ -84,15 +84,17 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	preparadores
 
-(preparador e3 e1)
-(preparador e4 e3)
-(preparador e5 e7)
-(preparador e6 e7)
 
 ;;	predecesores
 
+(predecesor dummy e1)
+(predecesor e1 e1)
+(predecesor e2 e1)
+(predecesor e3 e1)
+(predecesor e4 e1)
 (predecesor e5 e1)
-(predecesor e6 e3)
+(predecesor e6 e1)
+(predecesor e7 e1)
 (predecesor dummy e2)
 (predecesor e1 e2)
 (predecesor e2 e2)
@@ -101,6 +103,14 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (predecesor e5 e2)
 (predecesor e6 e2)
 (predecesor e7 e2)
+(predecesor dummy e3)
+(predecesor e1 e3)
+(predecesor e2 e3)
+(predecesor e3 e3)
+(predecesor e4 e3)
+(predecesor e5 e3)
+(predecesor e6 e3)
+(predecesor e7 e3)
 (predecesor dummy e4)
 (predecesor e1 e4)
 (predecesor e2 e4)
@@ -136,22 +146,22 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 
 ;;	Ejercicios hechos
 
-(LastLvl e1 n3)
+(reached e1 n3)
 (realiza e1 n3 d0)
-(LastLvl e3 n4)
+(reached e3 n4)
 (realiza e3 n4 d0)
-(LastLvl e5 n5)
+(reached e5 n5)
 (realiza e5 n5 d0)
-(LastLvl e7 n6)
+(reached e7 n6)
 (realiza e7 n6 d0)
 
 ;;	Ejercicios NO hechos
 
-(LastLvl e2 n0)
+(reached e2 n0)
 (realiza e2 n0 d0)
-(LastLvl e4 n0)
+(reached e4 n0)
 (realiza e4 n0 d0)
-(LastLvl e6 n0)
+(reached e6 n0)
 (realiza e6 n0 d0)
 
 ;;	objetivos
@@ -178,15 +188,13 @@ n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivel
 (= (ejercicios-dia d13) 0)
 (= (ejercicios-dia d14) 0)
 (= (ejercicios-dia d15) 0)
-(= (ej-prep) 0)
 ) ;; end init
 
 ;;	goal
 
 (:goal
     (forall (?ej - ejercicio ?n - nivel)
-        (imply (objetivo ?ej ?n) (LastLvl ?ej ?n))
+        (imply (objetivo ?ej ?n) (reached ?ej ?n))
     )
 )
-(:metric maximize (ej-prep))
 ) ;; end define

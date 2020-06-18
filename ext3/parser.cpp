@@ -23,12 +23,7 @@ int main(int argc, char *argv[]) {
         if (v[i].size() > 6) cout << "# WARNING: mas de 6 ejercicios" << endl;
         for (auto p : v[i]) {
             cout << "    - E" << p.first << "\tN" << p.second << endl;
-            if (p.second < mx[p.first]) {
-                cout << "ERROR ej" << p.first << ' ' << mx[p.first]
-                    << " -> "
-                    << p.second << endl;
-            }
-            mx[p.first] = p.second;
+            if (p.second > mx[p.first]) mx[p.first] = p.second;
         }
     }
 
